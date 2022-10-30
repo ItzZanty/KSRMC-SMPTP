@@ -1,0 +1,6 @@
+name: KSRMC-SMPTP
+version: 1.0
+author: ItzZanty
+main: com.itzzanty.ksrmcsmptp.Main
+api-version: 1.19
+depend: ['Multiverse-Core','Multiverse-Portals']

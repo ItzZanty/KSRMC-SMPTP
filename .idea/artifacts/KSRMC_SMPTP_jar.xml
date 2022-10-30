@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="KSRMC-SMPTP:jar">
+    <output-path>$PROJECT_DIR$/../Server/plugins</output-path>
+    <root id="archive" name="KSRMC-SMPTP.jar">
+      <element id="module-output" name="KSRMC-SMPTP" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../Dependencies/spigot-api-1.19.2.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
