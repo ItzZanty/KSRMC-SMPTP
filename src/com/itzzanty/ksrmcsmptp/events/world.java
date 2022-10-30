@@ -24,8 +24,8 @@ public class world implements Listener {
 
         Player p = e.getPlayer();
 
-        if (e.getFrom().getWorld().getName().startsWith("SMP")) {
-            if (!e.getTo().getWorld().getName().startsWith(("SMP"))) {
+        if (e.getFrom().getWorld().getName().startsWith("KSR-SMP")) {
+            if (!e.getTo().getWorld().getName().startsWith(("KSR-SMP"))) {
                 this.data.getConfig().set("players." + p.getUniqueId() + ".position.X", e.getFrom().getBlockX());
                 this.data.getConfig().set("players." + p.getUniqueId() + ".position.Y", e.getFrom().getBlockY());
                 this.data.getConfig().set("players." + p.getUniqueId() + ".position.Z", e.getFrom().getBlockZ());
@@ -44,7 +44,7 @@ public class world implements Listener {
     public void onPlayerQuit(PlayerQuitEvent e) {
         Player p = e.getPlayer();
 
-        if (p.getLocation().getWorld().getName().startsWith("SMP")) {
+        if (p.getLocation().getWorld().getName().startsWith("KSR-SMP")) {
             this.data.getConfig().set("players." + p.getUniqueId() + ".position.X", p.getLocation().getBlockX());
             this.data.getConfig().set("players." + p.getUniqueId() + ".position.Y", p.getLocation().getBlockY());
             this.data.getConfig().set("players." + p.getUniqueId() + ".position.Z", p.getLocation().getBlockZ());
@@ -63,8 +63,8 @@ public class world implements Listener {
 
         Player p = e.getTeleportee();
 
-        if (e.getDestination().getLocation(p).getWorld().getName().startsWith("SMP")) {
-            if (!p.getLocation().getWorld().getName().startsWith("SMP")) {
+        if (e.getDestination().getLocation(p).getWorld().getName().startsWith("KSR-SMP")) {
+            if (!p.getLocation().getWorld().getName().startsWith("KSR-SMP")) {
                 Location loc = new Location(
                         Bukkit.getServer().getWorld(this.data.getConfig().getString("players." + p.getUniqueId() + ".position.world")),
                         Double.parseDouble(this.data.getConfig().getString("players." + p.getUniqueId() + ".position.X")),
