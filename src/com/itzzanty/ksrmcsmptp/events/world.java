@@ -65,16 +65,18 @@ public class world implements Listener {
 
         if (e.getDestination().getLocation(p).getWorld().getName().startsWith("KSR-SMP")) {
             if (!p.getLocation().getWorld().getName().startsWith("KSR-SMP")) {
-                Location loc = new Location(
-                        Bukkit.getServer().getWorld(this.data.getConfig().getString("players." + p.getUniqueId() + ".position.world")),
-                        Double.parseDouble(this.data.getConfig().getString("players." + p.getUniqueId() + ".position.X")),
-                        Double.parseDouble(this.data.getConfig().getString("players." + p.getUniqueId() + ".position.Y")),
-                        Double.parseDouble(this.data.getConfig().getString("players." + p.getUniqueId() + ".position.Z")),
-                        Float.parseFloat(this.data.getConfig().getString("players." + p.getUniqueId() + ".position.yaw")),
-                        Float.parseFloat(this.data.getConfig().getString("players." + p.getUniqueId() + ".position.pitch"))
-                );
-                p.teleport(loc);
-                e.setCancelled(true);
+                if (this.data.getConfig().contains("players." + p.getUniqueId() + ".position")) {
+                    Location loc = new Location(
+                            Bukkit.getServer().getWorld(this.data.getConfig().getString("players." + p.getUniqueId() + ".position.world")),
+                            Double.parseDouble(this.data.getConfig().getString("players." + p.getUniqueId() + ".position.X")),
+                            Double.parseDouble(this.data.getConfig().getString("players." + p.getUniqueId() + ".position.Y")),
+                            Double.parseDouble(this.data.getConfig().getString("players." + p.getUniqueId() + ".position.Z")),
+                            Float.parseFloat(this.data.getConfig().getString("players." + p.getUniqueId() + ".position.yaw")),
+                            Float.parseFloat(this.data.getConfig().getString("players." + p.getUniqueId() + ".position.pitch"))
+                    );
+                    p.teleport(loc);
+                    e.setCancelled(true);
+                }
             }
         }
 
